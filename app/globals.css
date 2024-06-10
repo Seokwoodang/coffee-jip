@@ -3,6 +3,23 @@
 @tailwind utilities;
 
 :root {
+  --primary-color: #007bff; /* Default color */
+  --primary-font-color: black; /* Default color */
+  --secondary-font-color: white; /* Default color */
+  --starbucks-primary-color: #00643c; /* Default color */
+  --starbucks-secondary-color: #6c757d; /* Default color */
+  --twosome-primary-color: #d60037; /* Default color */
+  --twosome-secondary-color: #54565a; /* Default color */
+  --mega-primary-color: #ffdc00; /* Default color */
+  --mega-secondary-color: #442513; /* Default color */
+}
+
+body {
+  background-color: #fff6e5;
+  /* color: white; */
+}
+
+/* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -30,4 +47,4 @@ body {
   .text-balance {
     text-wrap: balance;
   }
-}
+} */
