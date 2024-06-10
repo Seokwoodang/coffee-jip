@@ -2,11 +2,13 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function MainHeader() {
   const [login, setLogin] = useState(false);
-
+  const router = useRouter();
+  console.log(router);
   const loginFunction = () => {
     setLogin(!login);
   };
@@ -14,10 +16,10 @@ export default function MainHeader() {
   return (
     <header class="flex justify-between items-center p-4 ">
       <Link href={"/"}>
-        <Image src={`/logo.png`} width={100} height={100} />
+        <Image src={`/coffeeJip.png`} width={200} height={100} />
       </Link>
       <div class="text-xl font-bold">
-        <Link href={`/starbuks`} class="p-4">
+        <Link href={`/starbucks`} class="p-4">
           STARBUCKS
         </Link>
         <Link href={`/megacoffee`} class="p-4">
