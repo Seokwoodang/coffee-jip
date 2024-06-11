@@ -14,23 +14,28 @@ export default function MainHeader() {
   };
 
   return (
-    <header class="flex justify-between items-center p-4 ">
+    <header className="flex justify-between height items-center p-4 bg-[#FFE7C3] h-136">
       <Link href={"/"}>
-        <Image src={`/coffeeJip.png`} width={200} height={100} />
+        <Image
+          src={`/coffeeJip.png`}
+          width={200}
+          height={100}
+          alt="homepage logo"
+        />
       </Link>
-      <div class="text-xl font-bold">
-        <Link href={`/starbucks`} class="p-4">
+      <div className="text-xl font-bold">
+        <Link href={`/starbucks`} className="p-4">
           STARBUCKS
         </Link>
-        <Link href={`/megacoffee`} class="p-4">
+        <Link href={`/megacoffee`} className="p-4">
           MEGA COFFEE
         </Link>
-        <Link href={`/twosomeplace`} class="p-4">
+        <Link href={`/twosomeplace`} className="p-4">
           TWOSOME PLACE
         </Link>
       </div>
-      <div class="w-28">
-        <button onClick={loginFunction} class="p-4 font-bold">
+      <div className="w-28">
+        <button onClick={loginFunction} className="p-4 font-bold">
           {login ? "login" : "logout"}
         </button>
       </div>

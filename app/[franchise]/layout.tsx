@@ -5,5 +5,5 @@ export default function FranchiseLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return <div className={classes.mainColor}>hey</div>;
+  return <div className={classes.mainColor}>{children}</div>;
 }
