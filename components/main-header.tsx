@@ -8,7 +8,6 @@ import { useState } from "react";
 export default function MainHeader() {
   const [login, setLogin] = useState(false);
   const router = useRouter();
-  console.log(router);
   const loginFunction = () => {
     setLogin(!login);
   };
@@ -21,6 +20,7 @@ export default function MainHeader() {
           width={200}
           height={100}
           alt="homepage logo"
+          priority
         />
       </Link>
       <div className="text-xl font-bold">
