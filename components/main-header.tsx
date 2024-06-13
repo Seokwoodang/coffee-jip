@@ -10,6 +10,7 @@ export default function MainHeader() {
   const router = useRouter();
   const loginFunction = () => {
     setLogin(!login);
+    router.push("/sign");
   };
 
   return (
