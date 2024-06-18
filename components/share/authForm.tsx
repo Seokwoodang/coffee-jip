@@ -7,19 +7,48 @@ export default function AuthForm() {
   const [login, setLogin] = useState(false);
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
+  const nicknameRef = useRef<HTMLInputElement>(null);
 
-  const loginFunction = (e: React.FormEvent) => {
+  const loginFunction = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("djdj");
+    if (emailRef.current && passwordRef.current && nicknameRef.current)
+      await supabase.auth
+        .signInWithPassword({
+          email: emailRef.current.value,
+          password: passwordRef.current.value,
+        })
+        .then(({ data }) => {
+          console.log(data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
   };
 
-  const signupFunction = (e: React.FormEvent) => {
+  const signupFunction = async (e: React.FormEvent) => {
     e.preventDefault();
     if (emailRef.current && passwordRef.current)
-      supabase.auth.signUp({
-        email: emailRef.current.value,
-        password: passwordRef.current.value,
-      });
+      await supabase.auth
+        .signUp({
+          email: emailRef.current.value,
+          password: passwordRef.current.value,
+        })
+        .then(({ data }) => {
+          supabase
+            .from("user_table")
+            .insert({
+              id: data.user?.id,
+              email: data.user?.email,
+              created_at: data.user?.created_at,
+              nickname: nicknameRef.current.value,
+            })
+            .then(({ data }) => {
+              console.log(data);
+            });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
   };
 
   const inputResetFunction = () => {
@@ -42,7 +71,12 @@ export default function AuthForm() {
     >
       <input
         className="flex p-2 border border-black rounded-lg"
-        placeholder="id"
+        placeholder="nickname"
+        ref={nicknameRef}
+      />
+      <input
+        className="flex p-2 border border-black rounded-lg"
+        placeholder="email"
         ref={emailRef}
       />
       <input
