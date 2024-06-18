@@ -30,21 +30,21 @@ export type Database = {
       user_table: {
         Row: {
           created_at: string
-          email: string
-          id: number
-          name: string
+          email: string | null
+          id: string
+          nickname: string | null
         }
         Insert: {
           created_at?: string
-          email: string
-          id?: number
-          name: string
+          email?: string | null
+          id?: string
+          nickname?: string | null
         }
         Update: {
           created_at?: string
-          email?: string
-          id?: number
-          name?: string
+          email?: string | null
+          id?: string
+          nickname?: string | null
         }
         Relationships: []
       }
