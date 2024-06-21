@@ -51,6 +51,8 @@ export default function AuthForm() {
         });
   };
 
+  console.log(emailRef.current.value);
+
   const inputResetFunction = () => {
     if (emailRef.current) {
       emailRef.current.value = "";
